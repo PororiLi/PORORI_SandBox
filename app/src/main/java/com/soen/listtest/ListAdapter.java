@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 
 public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
-    private ArrayList<String> tssid = null;
+    private ArrayList<ListItem> mdata = null;
 
     //아이템 뷰를 저장하는 뷰 홀더 클래스
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -30,14 +30,13 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             ap_state = itemView.findViewById(R.id.img_rssiDegree);
             btn_ap_connect = itemView.findViewById(R.id.imgb_connect);
             btn_ap_info = itemView.findViewById(R.id.imgb_moreinf);
-
         }
     }
     //TODO: 리스트 어텝더 작성 ㅡ
 
     //생성자에게 리스트 객체 전달 받는 파트
-    ListAdapter(ArrayList<String> list){
-        tssid = list;
+    ListAdapter(ArrayList<ListItem> list){
+        mdata = list;
 }
 
     @NonNull
@@ -55,14 +54,14 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     @Override
     //포지션에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String text = tssid.get(position);
-        holder.textView_SSID.setText(text);
+        ListItem text = mdata.get(position);
+        holder.textView_SSID.setText("text");
     }
 
     //전체 데이터 갯수 리턴
     @Override
     public int getItemCount() {
-        return tssid.size();
+        return mdata.size();
     }
 
 
