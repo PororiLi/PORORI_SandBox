@@ -76,15 +76,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         ListItem item = mdata.get(position);
 
         holder.textView_SSID.setText(item.getItem_ssid());
-        Log.d("debug", "onBindViewHolder: set text ssid");//debug
+//        Log.d("debug", "onBindViewHolder: set text ssid");//debug
         holder.ap_state.setImageDrawable(item.getAp_state());
-        Log.d("debug", "onBindViewHolder: set ap state");//debug
+//        Log.d("debug", "onBindViewHolder: set ap state");//debug
 
         holder.getAp_connect().setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onItemClickListener.onItemClick(v, position);
-                Log.d("debug", "onClick: Apconnect");
+//                Log.d("debug", "onClick: Apconnect");
             }
         });
 
@@ -92,7 +92,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 onItemClickListener.onItemClick(v, position);
-                Log.d("debug", "onClick: getmoreinf");
+//                Log.d("debug", "onClick: getmoreinf");
             }
         });
     }

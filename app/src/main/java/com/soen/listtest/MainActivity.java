@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onItemClick(View v, int position) {
                 //버튼 클릭될때 호출됨
                 addItem("click test",getDrawable(R.drawable.wifi_full));
-                Log.d("debug", "onItemClick: "+item_ssid);
+//                Log.d("debug", "onItemClick: "+item_ssid);//debug
                 adapter.notifyDataSetChanged();
             }
         });
@@ -60,11 +60,11 @@ public class MainActivity extends AppCompatActivity {
 
         //item 추가
         addItem("test",getDrawable(R.drawable.wifi_full));
-        Log.d("'debug", "onCreate: additem test1");
+//        Log.d("'debug", "onCreate: additem test1");//debug
         addItem("test2",getDrawable(R.drawable.wifi_full));
-        Log.d("debug", "onCreate: additem test2");
+//        Log.d("debug", "onCreate: additem test2");//debug
         addItem("test3",getDrawable(R.drawable.wifi_full));
-//        Log.d(TAG, "onCreate: additem test3");
+//        Log.d(TAG, "onCreate: additem test3");//debug
         adapter.notifyDataSetChanged();
     }
 
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         item.setAp_state(ap_state);
 
         mlist.add(item);
-        Log.d("debug", "addItem: "+item_ssid);
+//        Log.d("debug", "addItem: "+item_ssid);//debug
     }
 
 }
