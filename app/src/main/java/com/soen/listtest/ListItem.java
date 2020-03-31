@@ -19,4 +19,18 @@ public class ListItem {
     }
     //public void setMoreinf()
     //public void setAp_connect()
+
+    public String getItem_ssid(){
+        return this.item_ssid;
+    }
+    public Drawable getAp_state(){
+        return this.ap_state;
+    }
+//    public ImageButton getMoreinf(){
+//        return this.moreinf;
+//    }
+//    public ImageButton getAp_connect(){
+//        return this.ap_connect;
+//    }
+
 }

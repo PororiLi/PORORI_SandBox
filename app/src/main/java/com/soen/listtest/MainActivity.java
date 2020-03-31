@@ -3,7 +3,9 @@ package com.soen.listtest;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -45,33 +47,35 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.wifiList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //리사이클러뷰에 리스트 어뎁더 객체 지정
-        adapter = new ListAdapter(mlist);
+        adapter = new ListAdapter(mlist, new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                //버튼 클릭될때 호출됨
+                addItem("click test",getDrawable(R.drawable.wifi_full));
+                Log.d("debug", "onItemClick: "+item_ssid);
+                adapter.notifyDataSetChanged();
+            }
+        });
         recyclerView.setAdapter(adapter);
-
 
         //item 추가
         addItem("test",getDrawable(R.drawable.wifi_full));
-        try {//debug
-            sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Log.d("'debug", "onCreate: additem test1");
         addItem("test2",getDrawable(R.drawable.wifi_full));
-        try {//debug
-            sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        Log.d("debug", "onCreate: additem test2");
         addItem("test3",getDrawable(R.drawable.wifi_full));
+//        Log.d(TAG, "onCreate: additem test3");
         adapter.notifyDataSetChanged();
-
     }
+
     public void addItem(String item_ssid, Drawable ap_state){
         ListItem item = new ListItem();
 
         item.setItem_ssid(item_ssid);
         item.setAp_state(ap_state);
-        //버튼 두개도 그려야 하는데..
+
+        mlist.add(item);
+        Log.d("debug", "addItem: "+item_ssid);
     }
 
 }
